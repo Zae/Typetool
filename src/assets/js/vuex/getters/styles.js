@@ -16,9 +16,9 @@ export const css = state => {
             css += `
                 #tt-project.screen--${size} ${styleName} {
                     font-family: ${ _.get(state, `styles[${size}][${tag}].font`, 'inherit') };
-                    font-size: ${ _.get(state, `styles[${size}][${tag}].size`, 'inherit') };
+                    font-size: ${ _.get(state, `styles[${size}][${tag}].size`, 'inherit') }px;
                     font-weight: ${ _.get(state, `styles[${size}][${tag}].weight`, 'inherit') };
-                    line-height: ${ _.get(state, `styles[${size}][${tag}].lineHeight`, 'inherit') };
+                    line-height: ${ _.get(state, `styles[${size}][${tag}].lineHeight`, 'inherit') }em;
                     text-align: ${ _.get(state, `styles[${size}][${tag}].alignment`, 'inherit') };
                 }
             `;
