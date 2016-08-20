@@ -7,7 +7,7 @@
 
 	import { activeScreenSize, screenSizes } from '../vuex/getters/screen';
 	import { activeTag, tags } from '../vuex/getters/tags';
-	import { fonts } from '../vuex/getters/fonts';
+	import { fonts, activeFonts } from '../vuex/getters/fonts';
 	import { activeFont, activeFontWeight, activeFontSize, activeLineHeight, activeAlignment, css } from '../vuex/getters/styles';
 
 	import { setFont, setFontSize, setFontWeight, setLineHeight, setAlignment, resetStyles } from '../vuex/actions/styles';
@@ -21,7 +21,7 @@
 		vuex: {
 			getters: {
 				activeScreenSize, activeTag, fonts, tags, screenSizes,
-				activeFont, activeFontWeight, activeFontSize, activeLineHeight, activeAlignment,
+				activeFont, activeFontWeight, activeFontSize, activeLineHeight, activeAlignment, activeFonts,
 				css
 			},
 			actions: {

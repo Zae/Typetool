@@ -5,6 +5,7 @@ import Vuex from 'vuex';
 
 import * as mutationtypes from './mutations';
 import localStoragePlugin from './plugins/localStorage';
+import googleFontsPlugin from './plugins/googleFonts';
 
 import _ from 'lodash';
 
@@ -87,6 +88,9 @@ const mutations = {
     [mutationtypes.SETACTIVESCREENSIZE](state, screen) {
         state.screen.active = screen;
     },
+    [mutationtypes.ADDFONTS](state, fonts) {
+        state.fonts.fonts = _.concat(state.fonts.fonts, fonts);
+    },
 };
 
 // We combine the intial state and the mutations to create a vuex store.
@@ -94,5 +98,5 @@ const mutations = {
 export default new Vuex.Store({
     state,
     mutations,
-    plugins: [localStoragePlugin]
+    plugins: [localStoragePlugin, googleFontsPlugin]
 });

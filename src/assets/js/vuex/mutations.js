@@ -8,3 +8,4 @@ export const SETALIGNMENT = 'setalignment';
 export const SETACTIVETAG = 'setactivetag';
 export const SETACTIVESCREENSIZE = 'setactivescreensize';
 export const RESETSTYLES = 'resetstyles';
+export const ADDFONTS = 'addfonts';
