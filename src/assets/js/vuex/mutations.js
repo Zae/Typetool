@@ -1,7 +1,7 @@
 export const SETSTATE = 'setstate';
 export const SETSTYLES = 'setstyles';
 export const SETFONT = 'setfont';
-export const SETFONTWEIGHT = 'setfontheight';
+export const SETFONTWEIGHT = 'setfontweight';
 export const SETFONTSIZE = 'setfontsize';
 export const SETLINEHEIGHT = 'setlineheight';
 export const SETALIGNMENT = 'setalignment';

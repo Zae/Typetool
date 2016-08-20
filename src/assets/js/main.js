@@ -10,6 +10,8 @@ import App from './components/app.vue';
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
+Vue.config.devtools = true;
+
 // Create a router instance.
 // You can pass in additional options here, but let's
 // keep it simple for now.
@@ -17,6 +19,7 @@ const router = new VueRouter({
     hashbang: false,
     history: true
 });
+
 
 // Define some routes.
 // Each route should map to a component. The "component" can
