@@ -7,3 +7,4 @@ export const setFontWeight = ({dispatch, state}, weight) => dispatch(mutationtyp
 export const setFontSize = ({dispatch, state}, size) => dispatch(mutationtypes.SETFONTSIZE, size);
 export const setLineHeight = ({dispatch, state}, lineheight) => dispatch(mutationtypes.SETLINEHEIGHT, lineheight);
 export const setAlignment = ({dispatch, state}, alignment) => dispatch(mutationtypes.SETALIGNMENT, alignment);
+export const resetStyles = ({dispatch, state}) => dispatch(mutationtypes.RESETSTYLES);

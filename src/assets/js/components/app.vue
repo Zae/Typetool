@@ -10,7 +10,7 @@
 	import { fonts } from '../vuex/getters/fonts';
 	import { activeFont, activeFontWeight, activeFontSize, activeLineHeight, activeAlignment, css } from '../vuex/getters/styles';
 
-	import { setFont, setFontSize, setFontWeight, setLineHeight, setAlignment } from '../vuex/actions/styles';
+	import { setFont, setFontSize, setFontWeight, setLineHeight, setAlignment, resetStyles } from '../vuex/actions/styles';
 	import { setTag } from '../vuex/actions/tags';
 	import { setScreenSize } from '../vuex/actions/screen';
 
@@ -26,7 +26,8 @@
 			},
 			actions: {
 				setFont, setFontSize, setFontWeight, setLineHeight, setAlignment,
-				setTag, setScreenSize
+				setTag, setScreenSize,
+				resetStyles
 			}
 		},
 		methods: {
@@ -44,6 +45,9 @@
 			},
 			isActiveTag(tag) {
 				return tag === this.activeTag;
+			},
+			reset() {
+				this.resetStyles();
 			}
 		},
 		computed: {

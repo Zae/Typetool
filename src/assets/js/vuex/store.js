@@ -4,7 +4,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import * as mutationtypes from './mutations';
-import localStorageMiddleware from './middlewares/localStorage';
+import localStoragePlugin from './plugins/localStorage';
 
 import _ from 'lodash';
 
@@ -25,13 +25,16 @@ const state = {
     fonts: {
         fonts: ['Arial', 'Helvetica', 'Courier', 'Palatino Linotype', 'Verdana'],
     },
-    styles: []
+    styles: {}
 };
 
 // Create an object storing various mutations. We will write the mutation
 const mutations = {
-    [mutationtypes.SETSTATE](state, newState) {
-        state = newState;
+    [mutationtypes.SETSTYLES](state, newStyles) {
+        state.styles = _.merge({}, state.styles, newStyles);
+    },
+    [mutationtypes.RESETSTYLES](state) {
+        state.styles = {};
     },
     [mutationtypes.SETFONT](state, font) {
         state.styles = _.merge({}, state.styles, {
@@ -91,5 +94,5 @@ const mutations = {
 export default new Vuex.Store({
     state,
     mutations,
-    middlewares: [localStorageMiddleware]
+    plugins: [localStoragePlugin]
 });
