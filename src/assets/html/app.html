@@ -1,0 +1,52 @@
+<aside class="sidebar">
+	<header>
+		<span class="screensize">{{ activeScreenSize }}</span>
+		{{ activeTag }}
+	</header>
+	<section class="options">
+		<form>
+			<label for="fontSize">Font family</label>
+			<select id="fontFamily" v-model="fontFamily">
+				<option v-for="font in fonts" :value="font">{{ font }}</option>
+			</select>
+
+			<label for="fontSize">Font weight</label>
+			<input type="number" step="100" id="fontWeight" v-model="fontWeight">
+
+			<label for="fontSize">Font size</label>
+			<input type="number" step="1" id="fontSize" v-model="fontSize">
+
+			<label for="lineHeight">Line height</label>
+			<input type="number" step="1" id="lineHeight" v-model="lineHeight">
+
+			<label for="lineHeight">Alignment</label>
+			<select name="textAlign" id="" v-model="alignment">
+				<option value="left">Left</option>
+				<option value="center">Center</option>
+				<option value="right">Right</option>
+			</select>
+		</form>
+	</section>
+</aside>
+
+<div class="page">
+	<aside class="toolbar">
+		<ul class="buttonset switch-screensizes">
+			<li @click="setActiveScreen(screenSize)" v-for="screenSize in screenSizes" :class="{active:isActiveScreenSize(screenSize)}">{{ screenSize }}</li>
+		</ul>
+	</aside>
+
+	<div class="container {{ containerClass }}">
+		<div id="tt-project" class="fontStyles-wrapper {{ fontStylesClass }}">
+			<style>{{{ css }}}</style>
+			<div v-for="tag in tags" @click="setActiveTag(tag)" :class="{active:isActiveTag(tag)}" class="fontStyle">
+				<div class="styleDesc">
+					<span class="styleName">{{ tag }}</span>
+				</div>
+				<div class="styleSample">
+					{{{ content(tag) }}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

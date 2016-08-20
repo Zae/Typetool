@@ -1,0 +1,71 @@
+.fontStyles-wrapper{
+    background: #fff;
+}
+
+.fontStyle{
+    padding: 30px 40px;
+    cursor: pointer;
+    color: #383535;
+}
+
+
+.fontStyle:hover{
+    background: #F4FAFF;
+}
+
+
+.fontStyle.active{
+    border-left: 4px solid #B2D7FF;
+    padding-left: 36px;
+}
+
+
+.container--desktop{
+    max-width: 1200px;
+}
+
+.container--tablet{
+    max-width: 768px;
+
+    .fontStyle{
+        padding-left: 30px;
+        padding-right: 30px;
+        &.active{
+            padding-left: 26px;
+        }
+    }
+}
+
+.container--mobile{
+    max-width: 360px;
+
+    .fontStyle{
+        padding-left: 20px;
+        padding-right: 20px;
+        &.active{
+            padding-left: 16px;
+        }
+    }
+}
+
+
+.styleDesc{
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #B0AFAF;
+ }
+ 
+.styleDesc .styleName{
+    color: #383535;
+    margin-right: 10px;
+ }
+ 
+.styleDesc .styleProps{
+    color: #B0AFAF;
+}
+
+
+
+
