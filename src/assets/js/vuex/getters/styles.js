@@ -1,14 +1,14 @@
 import _ from "lodash";
 
-export const activeFont = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].font`, _.get(state, 'styles[desktop][body].font', state.fonts.fonts[0]));
-export const activeFontWeight = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].weight`, _.get(state, 'styles[desktop][body].weight', 100));
-export const activeFontSize = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].size`, _.get(state, 'styles[desktop][body].size', 12));
-export const activeLineHeight = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].lineHeight`, _.get(state, 'styles[desktop][body].lineHeight', 1));
-export const activeAlignment = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].alignment`, _.get(state, 'styles[desktop][body].alignment', 'left'));
-export const activeTextStyle = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].style`, _.get(state, 'styles[desktop][body].style', 'normal'));
-export const activeTextDecoration = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].decoration`, _.get(state, 'styles[desktop][body].decoration', 'none'));
-export const activeFontKerning = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].kerning`, _.get(state, 'styles[desktop][body].kerning', 'auto'));
-export const activeTextColor = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].color`, _.get(state, 'styles[desktop][body].color', '#000000'));
+export const activeFont = state => getStyleProperty(state, state.screen.active, state.tags.active, 'font', state.fonts.fonts[0]);
+export const activeFontWeight = state => getStyleProperty(state, state.screen.active, state.tags.active, 'weight', 100);
+export const activeFontSize = state => getStyleProperty(state, state.screen.active, state.tags.active, 'size', 12);
+export const activeLineHeight = state => getStyleProperty(state, state.screen.active, state.tags.active, 'lineHeight', 1);
+export const activeAlignment = state => getStyleProperty(state, state.screen.active, state.tags.active, 'alignment', 'left');
+export const activeTextStyle = state => getStyleProperty(state, state.screen.active, state.tags.active, 'style', 'normal');
+export const activeTextDecoration = state => getStyleProperty(state, state.screen.active, state.tags.active, 'decoration', 'none');
+export const activeFontKerning = state => getStyleProperty(state, state.screen.active, state.tags.active, 'kerning', 'auto');
+export const activeTextColor = state => getStyleProperty(state, state.screen.active, state.tags.active, 'color', '#000000');
 
 export const css = state => {
     let css = '';
@@ -19,17 +19,17 @@ export const css = state => {
         for (let size of state.screen.sizes) {
             css += `
                 #tt-project.screen--${size} .styleSample ${styleName} {
-                    font-family: ${ activeFont(state) };
-                    font-size: ${ activeFontSize(state) }px;
-                    font-weight: ${ activeFontWeight(state) };
-                    line-height: ${ activeLineHeight(state) }em;
-                    text-align: ${ activeAlignment(state) };
+                    font-family: ${ getStyleProperty(state, size, tag, 'font', state.fonts[0]) };
+                    font-size: ${ getStyleProperty(state, size, tag, 'size', 12) }px;
+                    font-weight: ${ getStyleProperty(state, size, tag, 'weight', 100) };
+                    line-height: ${ getStyleProperty(state, size, tag, 'lineHeight', 1) }em;
+                    text-align: ${ getStyleProperty(state, size, tag, 'alignment', 'left') };
                     
-                    font-style: ${ activeTextStyle(state) };
-                    text-decoration: ${ activeTextDecoration(state) };
-                    font-kerning: ${ activeFontKerning(state) };
+                    font-style: ${ getStyleProperty(state, size, tag, 'style', 'normal') };
+                    text-decoration: ${ getStyleProperty(state, size, tag, 'decoration', 'none') };
+                    font-kerning: ${ getStyleProperty(state, size, tag, 'kerning', 'auto') };
                     
-                    color: ${ activeTextColor(state) };
+                    color: ${ getStyleProperty(state, size, tag, 'color', '#000000') };
                 }
             `;
         }
@@ -37,3 +37,5 @@ export const css = state => {
 
     return css;
 };
+
+const getStyleProperty = (state, screen, tag, property, _default) => _.get(state, `styles[${screen}][${tag}].${property}`, _.get(state, `styles[desktop][body].${property}`, _default));
