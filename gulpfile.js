@@ -136,3 +136,8 @@ gulp.task('watch', ['less', 'watchify', 'lint'], function () {
 });
 
 gulp.task('default', ['browser-sync', 'watch']);
+
+gulp.task('disable-debug', function () {
+   config.debug = false;
+});
+gulp.task('build', ['disable-debug', 'less', 'browserify']);
