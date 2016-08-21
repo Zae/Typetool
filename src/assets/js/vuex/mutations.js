@@ -7,4 +7,7 @@ export const SETLINEHEIGHT = 'setlineheight';
 export const SETALIGNMENT = 'setalignment';
 export const SETACTIVETAG = 'setactivetag';
 export const SETACTIVESCREENSIZE = 'setactivescreensize';
+export const SETTEXTSTYLE = 'settextstyle';
+export const SETTEXTDECORATION = 'settextdecoration';
+export const SETFONTKERNING = 'setfontkerning';
 export const RESETSTYLES = 'resetstyles';

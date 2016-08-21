@@ -19,6 +19,28 @@
 
 				<label for="lineHeight">Line height</label>
 				<input type="number" step="1" id="lineHeight" v-model="lineHeight">
+				
+				<label for="style">Style</label>
+				<select id="style" v-model="textStyle">
+					<option value="normal">normal</option>
+					<option value="italic">italic</option>
+					<option value="oblique">oblique</option>
+				</select>
+
+				<label for="decoration">Decoration</label>
+				<select id="decoration" v-model="textDecoration">
+					<option value="none">none</option>
+					<option value="underline">underline</option>
+					<option value="overline">overline</option>
+					<option value="line-through">line-through</option>
+				</select>
+
+				<label for="kerning">Kerning</label>
+				<select id="kerning" v-model="fontKerning">
+					<option value="auto">auto</option>
+					<option value="normal">normal</option>
+					<option value="none">none</option>
+				</select>
 
 				<label for="lineHeight">Alignment</label>
 				<select name="textAlign" id="" v-model="alignment">

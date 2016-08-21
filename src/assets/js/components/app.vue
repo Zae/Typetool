@@ -8,9 +8,9 @@
 	import { activeScreenSize, screenSizes } from '../vuex/getters/screen';
 	import { activeTag, tags } from '../vuex/getters/tags';
 	import { fonts } from '../vuex/getters/fonts';
-	import { activeFont, activeFontWeight, activeFontSize, activeLineHeight, activeAlignment, css } from '../vuex/getters/styles';
+	import { activeFont, activeFontWeight, activeFontSize, activeLineHeight, activeAlignment, activeTextStyle, activeTextDecoration, activeFontKerning, css } from '../vuex/getters/styles';
 
-	import { setFont, setFontSize, setFontWeight, setLineHeight, setAlignment, resetStyles } from '../vuex/actions/styles';
+	import { setFont, setFontSize, setFontWeight, setLineHeight, setAlignment, setTextStyle, setTextDecoration, setFontKerning, resetStyles } from '../vuex/actions/styles';
 	import { setTag } from '../vuex/actions/tags';
 	import { setScreenSize } from '../vuex/actions/screen';
 
@@ -21,11 +21,11 @@
 		vuex: {
 			getters: {
 				activeScreenSize, activeTag, fonts, tags, screenSizes,
-				activeFont, activeFontWeight, activeFontSize, activeLineHeight, activeAlignment,
+				activeFont, activeFontWeight, activeFontSize, activeLineHeight, activeAlignment, activeTextStyle, activeTextDecoration, activeFontKerning,
 				css
 			},
 			actions: {
-				setFont, setFontSize, setFontWeight, setLineHeight, setAlignment,
+				setFont, setFontSize, setFontWeight, setLineHeight, setAlignment, setTextStyle, setTextDecoration, setFontKerning,
 				setTag, setScreenSize,
 				resetStyles
 			}
@@ -89,6 +89,30 @@
 				},
 				set(alignment){
 					return this.setAlignment(alignment);
+				}
+			},
+			textStyle: {
+				get() {
+					return this.activeTextStyle;
+				},
+				set(style){
+					return this.setTextStyle(style);
+				}
+			},
+			textDecoration: {
+				get() {
+					return this.activeTextDecoration;
+				},
+				set(decoration){
+					return this.setTextDecoration(decoration);
+				}
+			},
+			fontKerning: {
+				get() {
+					return this.activeFontKerning;
+				},
+				set(kerning){
+					return this.setFontKerning(kerning);
 				}
 			},
 			containerClass() {

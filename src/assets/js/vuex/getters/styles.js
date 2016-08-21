@@ -1,10 +1,13 @@
 import _ from "lodash";
 
-export const activeFont = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].font`, _.get(state,  'styles[desktop][body].font', state.fonts.fonts[0]));
-export const activeFontWeight = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].weight`, _.get(state,  'styles[desktop][body].weight', 100));
-export const activeFontSize = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].size`, _.get(state,  'styles[desktop][body].size', 12));
-export const activeLineHeight = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].lineHeight`, _.get(state,  'styles[desktop][body].lineHeight', 1));
-export const activeAlignment = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].alignment`, _.get(state,  'styles[desktop][body].alignment', 'left'));
+export const activeFont = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].font`, _.get(state, 'styles[desktop][body].font', state.fonts.fonts[0]));
+export const activeFontWeight = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].weight`, _.get(state, 'styles[desktop][body].weight', 100));
+export const activeFontSize = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].size`, _.get(state, 'styles[desktop][body].size', 12));
+export const activeLineHeight = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].lineHeight`, _.get(state, 'styles[desktop][body].lineHeight', 1));
+export const activeAlignment = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].alignment`, _.get(state, 'styles[desktop][body].alignment', 'left'));
+export const activeTextStyle = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].style`, _.get(state, 'styles[desktop][body].style', 'normal'));
+export const activeTextDecoration = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].decoration`, _.get(state, 'styles[desktop][body].decoration', 'none'));
+export const activeFontKerning = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].kerning`, _.get(state, 'styles[desktop][body].kerning', 'auto'));
 
 export const css = state => {
     let css = '';
@@ -20,6 +23,10 @@ export const css = state => {
                     font-weight: ${ _.get(state, `styles[${size}][${tag}].weight`, 'inherit') };
                     line-height: ${ _.get(state, `styles[${size}][${tag}].lineHeight`, 'inherit') }em;
                     text-align: ${ _.get(state, `styles[${size}][${tag}].alignment`, 'inherit') };
+                    
+                    font-style: ${ _.get(state, `styles[${size}][${tag}].style`, 'inherit') };
+                    text-decoration: ${ _.get(state, `styles[${size}][${tag}].decoration`, 'inherit') };
+                    font-kerning: ${ _.get(state, `styles[${size}][${tag}].kerning`, 'inherit') };
                 }
             `;
         }

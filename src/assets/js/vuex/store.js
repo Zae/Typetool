@@ -81,6 +81,33 @@ const mutations = {
             }
         });
     },
+    [mutationtypes.SETTEXTSTYLE](state, style) {
+        state.styles = _.merge({}, state.styles, {
+            [state.screen.active]: {
+                [state.tags.active]: {
+                    style
+                }
+            }
+        });
+    },
+    [mutationtypes.SETTEXTDECORATION](state, decoration) {
+        state.styles = _.merge({}, state.styles, {
+            [state.screen.active]: {
+                [state.tags.active]: {
+                    decoration
+                }
+            }
+        });
+    },
+    [mutationtypes.SETFONTKERNING](state, kerning) {
+        state.styles = _.merge({}, state.styles, {
+            [state.screen.active]: {
+                [state.tags.active]: {
+                    kerning
+                }
+            }
+        });
+    },
     [mutationtypes.SETACTIVETAG](state, tag) {
         state.tags.active = tag;
     },
