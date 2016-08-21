@@ -51,7 +51,7 @@
 				this.setTag(tag);
 			},
 			content(tag) {
-				return `<${tag}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<${tag}>`;
+				return `<${tag}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</${tag}>`;
 			},
 			isActiveScreenSize(screenSize) {
 				return screenSize === this.activeScreenSize;
