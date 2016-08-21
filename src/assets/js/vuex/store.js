@@ -108,6 +108,15 @@ const mutations = {
             }
         });
     },
+    [mutationtypes.SETTEXTCOLOR](state, color) {
+        state.styles = _.merge({}, state.styles, {
+            [state.screen.active]: {
+                [state.tags.active]: {
+                    color
+                }
+            }
+        });
+    },
     [mutationtypes.SETACTIVETAG](state, tag) {
         state.tags.active = tag;
     },

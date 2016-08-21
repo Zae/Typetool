@@ -10,4 +10,5 @@ export const SETACTIVESCREENSIZE = 'setactivescreensize';
 export const SETTEXTSTYLE = 'settextstyle';
 export const SETTEXTDECORATION = 'settextdecoration';
 export const SETFONTKERNING = 'setfontkerning';
+export const SETTEXTCOLOR = 'settextcolor';
 export const RESETSTYLES = 'resetstyles';

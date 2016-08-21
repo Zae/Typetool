@@ -11,5 +11,6 @@ export const setAlignment = ({dispatch, state}, alignment) => dispatch(mutationt
 export const setTextStyle = ({dispatch, state}, style) => dispatch(mutationtypes.SETTEXTSTYLE, style);
 export const setTextDecoration = ({dispatch, state}, decoration) => dispatch(mutationtypes.SETTEXTDECORATION, decoration);
 export const setFontKerning = ({dispatch, state}, kerning) => dispatch(mutationtypes.SETFONTKERNING, kerning);
+export const setTextColor = ({dispatch, state}, color) => dispatch(mutationtypes.SETTEXTCOLOR, color);
 
 export const resetStyles = ({dispatch, state}) => dispatch(mutationtypes.RESETSTYLES);

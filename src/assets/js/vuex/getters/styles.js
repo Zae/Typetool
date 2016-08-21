@@ -8,6 +8,7 @@ export const activeAlignment = state => _.get(state, `styles[${state.screen.acti
 export const activeTextStyle = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].style`, _.get(state, 'styles[desktop][body].style', 'normal'));
 export const activeTextDecoration = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].decoration`, _.get(state, 'styles[desktop][body].decoration', 'none'));
 export const activeFontKerning = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].kerning`, _.get(state, 'styles[desktop][body].kerning', 'auto'));
+export const activeTextColor = state => _.get(state, `styles[${state.screen.active}][${state.tags.active}].color`, _.get(state, 'styles[desktop][body].color', '#000000'));
 
 export const css = state => {
     let css = '';
@@ -27,6 +28,8 @@ export const css = state => {
                     font-style: ${ _.get(state, `styles[${size}][${tag}].style`, 'inherit') };
                     text-decoration: ${ _.get(state, `styles[${size}][${tag}].decoration`, 'inherit') };
                     font-kerning: ${ _.get(state, `styles[${size}][${tag}].kerning`, 'inherit') };
+                    
+                    color: ${ activeTextColor(state) };
                 }
             `;
         }
