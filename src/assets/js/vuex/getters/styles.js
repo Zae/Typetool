@@ -19,15 +19,15 @@ export const css = state => {
         for (let size of state.screen.sizes) {
             css += `
                 #tt-project.screen--${size} .styleSample ${styleName} {
-                    font-family: ${ _.get(state, `styles[${size}][${tag}].font`, 'inherit') };
-                    font-size: ${ _.get(state, `styles[${size}][${tag}].size`, 'inherit') }px;
-                    font-weight: ${ _.get(state, `styles[${size}][${tag}].weight`, 'inherit') };
-                    line-height: ${ _.get(state, `styles[${size}][${tag}].lineHeight`, 'inherit') }em;
-                    text-align: ${ _.get(state, `styles[${size}][${tag}].alignment`, 'inherit') };
+                    font-family: ${ activeFont(state) };
+                    font-size: ${ activeFontSize(state) }px;
+                    font-weight: ${ activeFontWeight(state) };
+                    line-height: ${ activeLineHeight(state) }em;
+                    text-align: ${ activeAlignment(state) };
                     
-                    font-style: ${ _.get(state, `styles[${size}][${tag}].style`, 'inherit') };
-                    text-decoration: ${ _.get(state, `styles[${size}][${tag}].decoration`, 'inherit') };
-                    font-kerning: ${ _.get(state, `styles[${size}][${tag}].kerning`, 'inherit') };
+                    font-style: ${ activeTextStyle(state) };
+                    text-decoration: ${ activeTextDecoration(state) };
+                    font-kerning: ${ activeFontKerning(state) };
                     
                     color: ${ activeTextColor(state) };
                 }
