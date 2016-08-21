@@ -24,7 +24,7 @@ const state = {
         active: 'body'
     },
     fonts: {
-        fonts: ['Arial', 'Helvetica', 'Courier', 'Palatino Linotype', 'Verdana'],
+        fonts: [{name:'Arial',type:'browser'}, {name:'Helvetica',type:'browser'}, {name:'Courier',type:'browser'}, {name:'Palatino Linotype',type:'browser'}, {name:'Verdana',type:'browser'}],
     },
     styles: {}
 };

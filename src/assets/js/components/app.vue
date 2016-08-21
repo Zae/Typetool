@@ -14,6 +14,8 @@
 	import { setTag } from '../vuex/actions/tags';
 	import { setScreenSize } from '../vuex/actions/screen';
 
+	import _ from 'lodash';
+
 	export default {
 		data() {
 			return {}
@@ -96,6 +98,9 @@
 			},
 			fontStylesClass() {
 				return `screen--${this.activeScreenSize}`;
+			},
+			googleFonts() {
+				return _.map(_.filter(this.activeFonts, font => font.type === 'google'), 'name');
 			}
 		}
 	}

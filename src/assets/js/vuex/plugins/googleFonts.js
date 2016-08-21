@@ -17,7 +17,7 @@ export default function googleFontsPlugin (store, state) {
     })
     .then(function (resp) {
         let fonts = _.map(resp.json().items, function(item) {
-             return item.family;
+             return {name:item.family,type:'google'};
         });
 
         store.dispatch(mutationtypes.ADDFONTS, fonts);
