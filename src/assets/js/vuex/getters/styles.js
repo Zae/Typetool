@@ -14,7 +14,7 @@ export const css = state => {
 
         for (let size of state.screen.sizes) {
             css += `
-                #tt-project.screen--${size} ${styleName} {
+                #tt-project.screen--${size} .styleSample ${styleName} {
                     font-family: ${ _.get(state, `styles[${size}][${tag}].font`, 'inherit') };
                     font-size: ${ _.get(state, `styles[${size}][${tag}].size`, 'inherit') }px;
                     font-weight: ${ _.get(state, `styles[${size}][${tag}].weight`, 'inherit') };
