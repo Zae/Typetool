@@ -7,6 +7,7 @@ import * as mutationtypes from './mutations';
 import localStoragePlugin from './plugins/localStorage';
 
 import _ from 'lodash';
+import { setActiveProperty } from '../utilities/styles';
 
 // Make vue aware of vuex
 Vue.use(Vuex);
@@ -37,85 +38,31 @@ const mutations = {
         state.styles = {};
     },
     [mutationtypes.SETFONT](state, font) {
-        state.styles = _.merge({}, state.styles, {
-            [state.screen.active]: {
-                [state.tags.active]: {
-                    font
-                }
-            }
-        });
+        state.styles = setActiveProperty(state, 'font', font);
     },
     [mutationtypes.SETFONTWEIGHT](state, weight) {
-        state.styles = _.merge({}, state.styles, {
-            [state.screen.active]: {
-                [state.tags.active]: {
-                    weight
-                }
-            }
-        });
+        state.styles = setActiveProperty(state,  'weight', weight);
     },
     [mutationtypes.SETFONTSIZE](state, size) {
-        state.styles = _.merge({}, state.styles, {
-            [state.screen.active]: {
-                [state.tags.active]: {
-                    size
-                }
-            }
-        });
+        state.styles = setActiveProperty(state, 'size', size);
     },
     [mutationtypes.SETLINEHEIGHT](state, lineHeight) {
-        state.styles = _.merge({}, state.styles, {
-            [state.screen.active]: {
-                [state.tags.active]: {
-                    lineHeight
-                }
-            }
-        });
+        state.styles = setActiveProperty(state, 'lineHeight', lineHeight);
     },
     [mutationtypes.SETALIGNMENT](state, alignment) {
-        state.styles = _.merge({}, state.styles, {
-            [state.screen.active]: {
-                [state.tags.active]: {
-                    alignment
-                }
-            }
-        });
+        state.styles = setActiveProperty(state, 'alignment', alignment);
     },
     [mutationtypes.SETTEXTSTYLE](state, style) {
-        state.styles = _.merge({}, state.styles, {
-            [state.screen.active]: {
-                [state.tags.active]: {
-                    style
-                }
-            }
-        });
+        state.styles = setActiveProperty(state, 'style', style);
     },
     [mutationtypes.SETTEXTDECORATION](state, decoration) {
-        state.styles = _.merge({}, state.styles, {
-            [state.screen.active]: {
-                [state.tags.active]: {
-                    decoration
-                }
-            }
-        });
+        state.styles = setActiveProperty(state, 'decoration', decoration);
     },
     [mutationtypes.SETFONTKERNING](state, kerning) {
-        state.styles = _.merge({}, state.styles, {
-            [state.screen.active]: {
-                [state.tags.active]: {
-                    kerning
-                }
-            }
-        });
+        state.styles = setActiveProperty(state, 'kerning', kerning);
     },
     [mutationtypes.SETTEXTCOLOR](state, color) {
-        state.styles = _.merge({}, state.styles, {
-            [state.screen.active]: {
-                [state.tags.active]: {
-                    color
-                }
-            }
-        });
+        state.styles = setActiveProperty(state, 'color', color);
     },
     [mutationtypes.SETACTIVETAG](state, tag) {
         state.tags.active = tag;
