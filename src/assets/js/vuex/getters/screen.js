@@ -1,2 +1,2 @@
-export const activeScreenSize = state => state.screen.active;
-export const screenSizes = state => state.screen.sizes;
+export const activeScreenSize = ({screen: {active}}) => active;
+export const screenSizes = ({screen:{sizes}}) => sizes;

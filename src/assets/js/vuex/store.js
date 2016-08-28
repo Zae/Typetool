@@ -6,8 +6,8 @@ import Vuex from 'vuex';
 import * as mutationtypes from './mutations';
 import localStoragePlugin from './plugins/localStorage';
 
-import _ from 'lodash';
 import { setActiveProperty } from '../utilities/styles';
+
 
 // Make vue aware of vuex
 Vue.use(Vuex);
@@ -32,7 +32,7 @@ const state = {
 // Create an object storing various mutations. We will write the mutation
 const mutations = {
     [mutationtypes.SETSTYLES](state, newStyles) {
-        state.styles = _.merge({}, state.styles, newStyles);
+        state.styles = {...state.styles, ...newStyles};
     },
     [mutationtypes.RESETSTYLES](state) {
         state.styles = {};

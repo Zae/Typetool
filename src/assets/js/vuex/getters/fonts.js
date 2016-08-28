@@ -1,1 +1,1 @@
-export const fonts = state => state.fonts.fonts;
+export const fonts = ({fonts}) => fonts.fonts;
